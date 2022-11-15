@@ -1,0 +1,18 @@
+{{> header}}
+
+{{> navbar}}
+
+{{#if user}}
+    <div class="usuario-container">
+        <div class="usuario">
+        Usuario: <b>{{user.name}} {{user.lastName}}</b>
+        </div>
+    </div>
+{{/if}}
+
+<div class="turns">
+    <img src="/images/doctores.webp" alt="">
+    <button>Pedi tu turno haciendo click aca</button>
+</div>
+
+{{> footer}}

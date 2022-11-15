@@ -1,0 +1,63 @@
+{{>header}}
+
+{{>navbar}}
+
+<div class="register_form">
+    <div class="formulario">      
+        <h3>Formulario de registro</h3>
+        
+        <form action="/user/register" method="post">       
+            
+            {{#if message}}
+                    <span class="inputErrors">* {{message}} *</span>
+            {{/if}}
+            
+            <p>
+                <label for="name">Nombres<span>*</span></label>
+                <ul class="inputErrors">
+                    {{#each errorName}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                <input type="text" name="name" placeholder="Escribe tu Nombre" autofocus value="{{registerDataOk.name}}">
+            </p>
+              
+            <p>
+                <label for="lastName">Apellidos<span>*</span></label>
+                <ul class="inputErrors">
+                    {{#each errorLastName}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                <input type="text" name="lastName" placeholder="Escribe tu Apellido" value="{{registerDataOk.lastName}}">
+            </p>
+
+            <p>
+                <label for="email">E-mail<span>*</span></label>
+                <ul class="inputErrors">
+                    {{#each errorEmail}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                <input type="text" name="email" placeholder="Escribe tu E-mail" value="{{registerDataOk.email}}">
+            </p>
+            
+            <p>
+                <label for="password">Contraseña<span>*</span></label>
+                <ul class="inputErrors">
+                    {{#each errorPassword}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                <input type="password" name="password" placeholder="Escribe tu Contraseña" value="{{registerDataOk.password}}">
+            </p>
+              
+            <button type="submit">Crear Cuenta</button>
+
+            <p class="aviso"><span> * </span>Los campos son obligatorios.</p>          
+            
+        </form>
+    </div>  
+</div>
+
+{{> footer}}

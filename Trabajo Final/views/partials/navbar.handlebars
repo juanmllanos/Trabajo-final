@@ -1,0 +1,34 @@
+<div class="barra-navegacion">
+  <ul class="main-menu">
+    <li>
+      <a href="/">Inicio</a>
+    </li>
+    {{#if user}}
+      <li>
+        <a href="/user/turns">Turnos</a>
+      </li>
+    {{else}}
+    <li>
+      <a href="/user/login">Iniciar Sesion</a>
+    </li>
+    <li>
+      <a href="/user/register">Registrarse</a>
+    </li>
+    {{/if}}
+    <li>
+        <a href="/user/message">Mensaje</a>
+    </li>
+    {{#if user}}
+      <li>
+        <a href="/user/settings">Configuracion de Cuenta</a>
+      </li>
+      <li>
+        <a href="/user/validate">Validacion de Cuenta</a>
+        </li>
+      </li>
+      <li>
+        <a href="/user/logout">Salir</a>
+      </li>
+    {{/if}}
+  </ul>
+</div>

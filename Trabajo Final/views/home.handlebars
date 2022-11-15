@@ -1,0 +1,22 @@
+{{> header}}
+
+{{> navbar}}
+
+{{#if user}}
+    <div class="usuario-container">
+        <div class="usuario">
+        Usuario: <b>{{user.name}} {{user.lastName}}</b>
+        </div>
+    </div>
+{{/if}}
+
+<div class="container">
+    <div class="photo">
+        <img src="/images/centro-salud.webp" alt="Centro de Salud San Romano">
+    </div>
+    <div class="lorem">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum asperiores commodi voluptas error veritatis aut, minus labore eaque aperiam, nemo suscipit dolorum! Architecto fugit magni quasi dolore, quas eos tempora?
+    </div>
+</div>
+
+{{> footer}}

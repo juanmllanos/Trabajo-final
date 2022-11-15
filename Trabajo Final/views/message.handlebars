@@ -1,0 +1,66 @@
+{{> header}}
+
+{{> navbar}}
+
+{{#if user}}
+    <div class="usuario-container">
+        <div class="usuario">
+        Usuario: <b>{{user.name}} {{user.lastName}}</b>
+        </div>
+    </div>
+{{/if}}
+
+<div class="contact_form">
+    <div class="formulario">      
+        <h3>Escríbenos y en breve contactamos contigo</h3>
+        
+        <form action="/user/message" method="post">       
+            <p>
+                <label for="name">Nombre<span>*</span></label>
+                <ul class="inputErrors">
+                    {{#each errorNombre}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                <input type="text" name="nombre" id="name" placeholder="Escribe tu nombre" autofocus value="{{user.name}}{{formDataOk.nombre}}">
+            </p>
+              
+            <p>
+                <label for="lastName">Apellido</label>
+                <ul class="inputErrors">
+                    {{#each errorApellido}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                <input type="text" name="apellido" id="lastName" placeholder="Escribe tu Apellido" value="{{user.lastName}}{{formDataOk.apellido}}">
+            </p>
+
+            <p>
+                <label for="email">E-mail<span>*</span></label>
+                <ul class="inputErrors">
+                {{#each errorCorreo}}
+                    <li>{{this}}</li>
+                {{/each}}
+                </ul>
+                <input type="email" name="correo" id="email" placeholder="Escribe tu E-mail" value="{{user.email}}{{formDataOk.correo}}">
+            </p>
+
+            <p>
+                <label for="message">Mensaje<span>*</span></label>
+                <ul class="inputErrors">
+                {{#each errorMensaje}}
+                    <li>{{this}}</li>
+                {{/each}}
+                </ul>
+                <textarea name="mensaje" id="message" placeholder="Deja aquí tu mensaje...">{{formDataOk.mensaje}}</textarea> 
+            </p>                    
+              
+            <button type="submit">Enviar</button>
+
+            <p class="aviso"><span> * </span>Los campos son obligatorios.</p>          
+            
+        </form>
+    </div>  
+</div>
+
+{{> footer}}

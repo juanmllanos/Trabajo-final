@@ -1,0 +1,66 @@
+{{> header}}
+
+{{> navbar}}
+
+<div class="contact_form">
+    <div class="formulario">      
+        <h3>Edita tus datos</h3>
+        
+        <form action="/user/settings" method="post">       
+
+            <p>
+                <label for="name">Nombre</label>
+                <ul class="inputErrors">
+                    {{#each errorName}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                <input type="text" name="name" id="name" placeholder="Escribe tu nombre" autofocus value="{{user.name}}{{editDataOk.name}}">
+            </p>
+              
+            <p>
+                <label for="lastName">Apellido</label>
+                <ul class="inputErrors">
+                    {{#each errorLastName}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                <input type="text" name="lastName" id="lastName" placeholder="Escribe tu Apellido" value="{{user.lastName}}{{editDataOk.lastName}}">
+            </p>
+
+            <p>
+                <label for="email">E-mail</label>
+                <ul class="inputErrors">
+                {{#each errorEmail}}
+                    <li>{{this}}</li>
+                {{/each}}
+                </ul>
+                <input type="email" name="email" id="email" placeholder="Escribe tu E-mail" value="{{user.email}}{{editDataOk.email}}">
+            </p>                  
+              
+            <button type="submit">Aceptar</button>
+
+            <br><br>
+            
+            <input type="checkbox" id="btn-modal">
+            <label for="btn-modal" class="lbl-modal">Eliminar Cuenta</label>
+            <div class="modal">
+                <div class="contenedor">
+		            <header>Confirmacion de eliminacion de cuenta</header>
+		            <label for="btn-modal">X</label>
+		            <div class="contenido">
+                        <li>
+                            <a href="/user/settings">No</a>
+                        </li>
+                        <br>
+		                <li>
+                            <a href="/user/deleteUser">Si, eliminar mi cuenta</a>
+                        </li>
+		            </div>
+	            </div>
+            </div>
+
+        </form>
+    </div>  
+</div>
+
